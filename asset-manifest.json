@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/URL-Shortner.github.io/URL-Shortner/static/css/main.1d832e89.chunk.css",
+    "main.js": "/URL-Shortner.github.io/URL-Shortner/static/js/main.56b4be5b.chunk.js",
+    "main.js.map": "/URL-Shortner.github.io/URL-Shortner/static/js/main.56b4be5b.chunk.js.map",
+    "runtime-main.js": "/URL-Shortner.github.io/URL-Shortner/static/js/runtime-main.2d5cf8f8.js",
+    "runtime-main.js.map": "/URL-Shortner.github.io/URL-Shortner/static/js/runtime-main.2d5cf8f8.js.map",
+    "static/js/2.40f364de.chunk.js": "/URL-Shortner.github.io/URL-Shortner/static/js/2.40f364de.chunk.js",
+    "static/js/2.40f364de.chunk.js.map": "/URL-Shortner.github.io/URL-Shortner/static/js/2.40f364de.chunk.js.map",
+    "index.html": "/URL-Shortner.github.io/URL-Shortner/index.html",
+    "static/css/main.1d832e89.chunk.css.map": "/URL-Shortner.github.io/URL-Shortner/static/css/main.1d832e89.chunk.css.map",
+    "static/js/2.40f364de.chunk.js.LICENSE.txt": "/URL-Shortner.github.io/URL-Shortner/static/js/2.40f364de.chunk.js.LICENSE.txt",
+    "static/media/urlshortner.ae05bf61.svg": "/URL-Shortner.github.io/URL-Shortner/static/media/urlshortner.ae05bf61.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d5cf8f8.js",
+    "static/js/2.40f364de.chunk.js",
+    "static/css/main.1d832e89.chunk.css",
+    "static/js/main.56b4be5b.chunk.js"
+  ]
+}
