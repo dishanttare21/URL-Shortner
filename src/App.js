@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState, useEffect} from 'react';
+// import Table from './components/Table';
+// import Form from './components/Form';
+import Header from './components/Header';
+import Home from './components/Home';
 
 function App() {
+  const [urls, setUrls] = useState([]);
+
+  useEffect(() => {
+    fetchUrls();
+  }, [setUrls])
+
+  const fetchUrls = async () =>{
+    try {
+      const response = await fetch('https://nodejs-url-shortner.herokuapp.com/');
+      const data = await response.json();
+      setUrls(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Home fetchUrls={fetchUrls} url={urls}/>
+      {/* {urls.map(url =>(
+        <Table 
+        key={url._id}
+        long={url.longUrl} 
+        short={url.shortUrl} 
+        date={url.date} />
+      ))} */}
     </div>
   );
 }

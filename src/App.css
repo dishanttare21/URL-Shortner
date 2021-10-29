@@ -1,38 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+html{
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+:root{
+  --primary-color: #228BE6;
+  --primary-bg: #fff;
+  --secondary-color: #3C3B4D;
+}
+body{
+  width: 100%;
+}
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a{
+  color: var(--primary-color);
+  text-decoration: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img, svg{
+  width: 400px;
+  height: 400px;
+  display: block;
+  margin: auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn{
+  background: 0;
+  color: var(--btn-color, --secondary-color);
+  border: 2px solid var(--btn-color, --secondary-color);
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: color 250ms ease, background 250ms ease;
+}
+.btn:active{
+  transform: scale(0.96);
+}
+.btn:hover{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.btn:disabled{
+  filter: opacity(0.5);
+  background-color:#ddd;
+}
+.btn-blue{
+  --btn-color: #228BE6;
+}
+.btn-grey{
+  --btn-color: #3C3B4D;
+}
+.btn-red{
+  --btn-color: #c94343;
+}
+.btn-blue:hover{
+  background: var(--btn-color);
+}
+.btn-grey:hover{
+  background: var(--btn-color);
+}
+.btn-red:hover{
+  background: var(--btn-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*********HEADER**********/
+header{
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+.title{
+  color: var(--secondary-color);
+}
+nav{
+  width: 85%;
+  /* background-color: brown; */
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+}
+.nav-link{
+  margin-left: 1em;
+  font-size: 0.9em;
+}
+.signup{
+  border-radius: 25px;
+}
+/***********************/
+
+/*********HOME**********/
+.home{
+  height: 85vh;
+  width: 85%;
+  margin: auto;
+  /* display: flex; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.home > * {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+}
+.intro{
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid black; */
+  padding: 0 2em;
+}
+.main-phrase{
+  font-size: 3.5rem;
+  color: var(--secondary-color);
+}
+.main-phrase > span{
+  color: #6C63FF;
+}
+.description{
+  flex: 1.5;
+}
+.home-img{
+  /* border: 2px solid green; */
+  height: 100%;
+  flex: 1;
+}
+.home-form{
+  /* flex: 1; */
+  /* height: 90%; */
+  /* border: 2px solid green; */
+}
+/***********************/
+.shortner, .form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.shortner{
+  width: 90%;
+  height: 30vh;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+.form{
+  /* border: 1px solid black; */
+  width: 100%;
+}
+.form input{
+  width: 80%;
+  max-width: 50em;
+  height: 2.5em;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0 1em;
+}
+#submit{
+  margin: 1em 0;
+  padding: 0.5em 2.3em;
+  font-size: 1.02em
+}
+.result{
+  
+  width: 40%;
+}
+.copy{
+  padding: 0.3em 1em;
+  margin: 0 0.7em;
+}
+
+@media (max-width: 850px) {
+  .home{
+    flex-direction: column-reverse;
+    width: 95%;
+    /* border: 2px solid green; */
   }
-  to {
-    transform: rotate(360deg);
+  .home > *{
+    /* width: 95%; */
+    /* flex: 1; */
+    /* border: 2px solid green; */
+    /* margin: auto; */
+    text-align: center;
+  }
+  .main-phrase{
+    font-size: 2.5rem;
+  }
+  .home-form{
+    align-self: flex-start;
+    width: 95%;
+  }
+  .shortner{
+    margin-top: 2em;
+    /* border: 2px solid green; */
+  }
+  .home-img{
+    height: auto;
+  }
+  img,svg{
+    width: 180px;
+    height: 180px;
+    /* border: 2px solid green; */
+  }
+  .intro{
+    flex-direction: column-reverse;
   }
 }
