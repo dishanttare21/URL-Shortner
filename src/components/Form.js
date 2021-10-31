@@ -15,7 +15,7 @@ const Form = ({ fetchUrls }) => {
     function handleSubmit(e) {
         e.preventDefault();
         document.getElementById('submit').disabled = true; 
-        fetch('https://nodejs-url-shortner.herokuapp.com/shorten', {
+        fetch('https://shtme.herokuapp.com/shorten', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ longUrl: longUrl })
