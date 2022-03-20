@@ -3,7 +3,7 @@ import React, { useContext, useRef, useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
 
 const Register = ({handleClose, isLogin, setIsLogin}) => {
-    const api = process.env.REACT_APP_BASE_URL;
+    const api = process.env.REACT_APP_HOSTED_BASE_URL;
     const name = useRef();
     const email = useRef();
     const password = useRef();
