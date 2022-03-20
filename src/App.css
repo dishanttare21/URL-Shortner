@@ -6,7 +6,9 @@
 html{
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+}
+body{
+  /* overflow-x: hidden; */
 }
 :root{
   --primary-color: #228BE6;
@@ -28,6 +30,10 @@ img, svg{
   height: 400px;
   display: block;
   margin: auto;
+}
+button{
+  display: flex;
+  align-items: center;
 }
 .btn{
   background: 0;
@@ -91,8 +97,70 @@ nav ul{
   margin-left: 1em;
   font-size: 0.9em;
 }
+.login{
+  color: #228BE6;
+}
+.login:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
 .signup{
   border-radius: 25px;
+}
+.user-profile-icon{
+  cursor: pointer;
+  transition: all 200ms ease;
+  border-radius: 100vw;
+  padding: 0.2em 0.4em;
+}
+.user-profile-icon:hover{
+  transform: translateY(-1px);
+  background: #ededed;
+  
+}
+.login-form{
+  /* margin: 1em; */
+  /* border: 2px solid red; */
+}
+
+.login-form-title{
+  text-align: center;
+  margin-bottom: 1em;
+  color: #3C3B4D;
+}
+.login-form input{
+  margin: auto;
+  width: 90%;
+  max-width: 50em;
+  height: 2.5em;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0 1em;
+  margin-bottom: 1em;
+}
+.login-form label{
+  font-size: 0.85rem;
+  display: block;
+}
+.login-submit{
+  margin: auto;
+}
+.popper{
+  /* border: 2px solid red !important; */
+  color: #3C3B4D;
+}
+.popper *{
+  text-align: center;
+}
+.popper span{
+  font-size: 0.8rem;
+  color: #666;
+}
+.popper .btn{
+  margin: 1em auto;
+}
+#error{
+  color: red;
 }
 /***********************/
 
@@ -161,6 +229,7 @@ nav ul{
   border-radius: 5px;
   border: 1px solid black;
   padding: 0 1em;
+  margin-bottom: 1em;
 }
 #submit{
   margin: 1em 0;
@@ -211,4 +280,52 @@ nav ul{
   .intro{
     flex-direction: column-reverse;
   }
+}
+
+.stats-btn{
+  margin: 1.5em auto;
+}
+.no-prev{
+  /* border: 2px solid red; */
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin: 1em auto;
+}
+.stats-table{
+  width: 80%;
+  margin: 1em auto;
+  color: var(--secondary-color);
+  border: 1px solid #3C3B4D;
+  border-collapse: collapse;
+  /* height: 60vh; */
+  overflow-x: scroll;
+  /* background-color: red; */
+}
+th{
+  border: 1px solid #3C3B4D;
+  color: var(--secondary-color);
+}
+td{
+  padding: 1em;
+  font-size: 0.85rem;
+  border: 1px solid green;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+
+@media (max-width: 400px) {
+  html{
+    font-size: 15px;
+  }
+  body{
+    font-size: 0.8rem;
+  }
+  .main-phrase{
+    font-size: 2rem;
+  }
+  
 }

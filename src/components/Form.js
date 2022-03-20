@@ -1,43 +1,53 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 // import isURL from 'validator/lib/isURL';
 import Result from './Result';
-
-const Form = ({ fetchUrls }) => {
+import axios from 'axios';
+const Form = ({fetchUrls, urls, setUrls}) => {
     const [longUrl, setLongUrl] = useState('');
     const [shortUrl, setShortUrl] = useState('');
-    const [disabled, setDisabled] = useState(true);
+    const [disabled, setDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [urlDesc, setUrlDesc] = useState('');
+    const [copy, setCopy] = useState(true);
 
     useEffect(() => {
-        
+
     }, [loading])
 
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        document.getElementById('submit').disabled = true; 
-        fetch('https://shtme.herokuapp.com/shorten', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ longUrl: longUrl })
-        })
-            .then(response => response.json())
-            .then(response => setShortUrl(response.data))
-            .then(setLoading(false))
-            .then(console.log(shortUrl))
-            .then(() => {
-                setTimeout(() => {
-                    setDisabled(false)
-                    document.getElementById('submit').disabled = false; 
-
-                }, 1000);
-            })
-            .catch(error => console.log(error))
-            .then(() => {
-                // fetchUrls();
-                console.log('url shotned');
-            });
+        setDisabled(true);
+        const response = await axios.post('http://localhost:5000/shorten', { userId: '622cc236b059a4da868ccc1a', longUrl: longUrl, urlDescription: urlDesc })
+        const data = response.data;
+        console.log(data);
+        setShortUrl(data.shortUrl)
+        setLoading(false);
+        setTimeout(() => {
+            setDisabled(false);
+            setCopy(false);
+        }, 2000);
+        setLongUrl('');
+        setUrlDesc('');
+        // fetch('http://localhost:5000/shorten', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({ longUrl: longUrl, urlDescription: urlDesc })
+        // })
+        //     .then(response => response.json())
+        //     .then(response => setShortUrl(response.shortUrl))
+        //     .then(setLoading(false))
+        //     .then(console.log(shortUrl))
+        //     .then(() => {
+        //         setTimeout(() => {
+        //             setDisabled(false)
+        //             document.getElementById('submit').disabled = false;
+        //         }, 1000);
+        //     })
+        //     .catch(error => console.log(error))
+        //     .then(() => {
+        //         console.log('url shotned');
+        //     });
     }
-
 
     return (
         <div className="shortner">
@@ -50,11 +60,25 @@ const Form = ({ fetchUrls }) => {
                     onChange={e => setLongUrl(e.target.value)}
                     placeholder="Enter link here"
                     required />
-                <button type="submit" className="btn btn-grey" id="submit">Shrink</button>
+
+                <input
+                    type="text"
+                    placeholder='Add a short description (optional)'
+                    value={urlDesc}
+                    onChange={e => setUrlDesc(e.target.value)}
+                />
+                {disabled
+                    ? (
+                        <button type="submit" className="btn btn-grey" id="submit" disabled>Shrinking</button>
+                    )
+                    : (
+                        <button type="submit" className="btn btn-grey" id="submit">Shrink</button>
+                    )}
             </form>
-            {loading ? (<p>Loading</p>) : <div className="result-div">
-                {disabled ? (<></>) : <Result setDisabled={setDisabled} shortUrl={shortUrl} />}
-            </div>}
+            <div className="result-div">
+                {disabled ? (<></>) : <Result copy={copy} setCopy={setCopy} shortUrl={shortUrl} />}
+            </div>
+
         </div>
     )
 }
